@@ -1,0 +1,40 @@
+Overview:
+● This is a **hands-on**, open-web exercise that can be used to test candidates with
+varying levels of understanding on AWS
+● The candidate will have full access to the Internet.
+Objectives:
+● This exercise is not some random/contrived problem.
+● This is intended to be a pragmatic, real-world challenge that the candidate may well
+encounter as part of their routine, day-to-day DevOps work.
+Task:
+Part 1:
+1. Create VPC
+2. Create 2 Subnets [ 1-Public, 1-Private ]
+3. Create Route Table [1-Public and 1-Private]
+4. Create Internet Gateway
+5. Create NAT Gateway
+6. Add Routes in the Route Tables to Private and Public subnets
+Part 2:
+1. Create a Bastion / Jump Host [ec2 Instance] with public IP which will be used to login
+into all the other ec2 instances
+2. Create a Auto Scaling Group with desired 1 and minimum 1 maximum 3 ec2 instances
+3. Auto scaling group instances should have Apache web server installed
+4. Install NFS packages
+5. All ec2 instance under ASG should automatically mount EFS volume once running
+6. Create a EC2 instance in private subnet with Internet connectivity
+7. Create a MySQL RDS instance with single AZ setup [ Free tire ]
+8. ASG Ec2 instances should have connectivity to RDS on port 3306
+Part 3:
+1. Create a Application Load balancer and attach the ASG to it
+2. When we hit the LB url Apache web page should be displayed
+3. Create a CloudFront Distribution and add LB as the endpoint to it
+4. When we hit the CloudFront Distribution url Apache web page should be displayed
+Part 4:
+1. Create a S3 Bucket with static website hosting
+2. Create a AWS Lambda
+3. When there is any action like (put, update, delete) is performed on the S3 Bucket
+Lambda should be triggered
+4. Create a SNS
+5. Add Email as subscriber to the SNS
+6. Lambda should publish the file name along with the action performed to the SNS
+7. User should receive the email for s3 bucket object related tasks
